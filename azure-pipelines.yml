@@ -7,11 +7,11 @@ pool:
 stages:
 - stage: Build
   jobs:
-    - job: Linux Job 1
+    - job: LinuxJob1
       steps:
         - bash: echo Hello Linux
         - bash: echo Hello Linux
-    - job: Linux Job 2
+    - job: LinuxJob2
       steps:
         - bash: echo Hello Linux
         - bash: echo Hello Linux
@@ -19,11 +19,11 @@ stages:
   pool:
     vmImage: 'windows-latest'     # stage level
   jobs:
-    - job: Windows Job 1
+    - job: WindowsJob1
       steps:
         - pwsh: echo Hello Windows
         - pwsh: echo Hello Windows
-    - job: Mac Job 2
+    - job: MacJob2
       pool:
           vmImage: 'mac-latest'     # job level
       steps:
