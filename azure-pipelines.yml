@@ -7,7 +7,7 @@ pool:
 stages:
 - stage: Build
   jobs:
-    - job: LinuxJob1
+    - job: "Linux Job 1"
       steps:
         - bash: |
             echo Hello Linux
