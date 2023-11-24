@@ -13,9 +13,9 @@ jobs:
   steps:
   - bash: echo "Hello World"
   - bash: echo "Hello World"
-- job: Job2
+- job: Job3
   steps:
   - bash: echo "Hello World"
   - bash: echo "Hello World"
-  dependsOn: Job1, Job2
+  dependsOn: Job1 | Job2
 
