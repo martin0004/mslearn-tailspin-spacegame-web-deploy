@@ -25,7 +25,7 @@ stages:
         - pwsh: echo Hello Windows
     - job: MacJob2
       pool:
-          vmImage: 'mac-latest'     # job level
+          vmImage: 'macOS-latest'     # job level
       steps:
         - bash: echo Hello Mac
         - bash: echo Hello Mac
