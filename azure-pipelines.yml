@@ -7,33 +7,33 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: Job1
+  - job: BuildJob1
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-  - job: Job2
+  - job: BuildJob2
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
 - stage: Test
   jobs:
-  - job: Job1
+  - job: TestJob1
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-  - job: Job2
+  - job: TestJob2
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-    dependsOn: Build
+    dependsOn: BuildJob2
 - stage: Deploy
   jobs:
-  - job: Job1
+  - job: DeployJob1
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-  - job: Job2
+  - job: DeployJob2
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-    dependsOn: Build
+    dependsOn: BuildJob2
