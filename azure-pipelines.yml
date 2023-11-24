@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-- stage:
+- stage: Build
   jobs:
   - job: Job1
     steps:
@@ -15,7 +15,7 @@ stages:
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
-- stage:
+- stage: Test
   jobs:
   - job: Job1
     steps:
@@ -25,3 +25,15 @@ stages:
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
+    dependsOn: Build
+- stage: Deploy
+  jobs:
+  - job: Job1
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+  - job: Job2
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+    dependsOn: Build
