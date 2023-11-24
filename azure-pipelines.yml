@@ -2,12 +2,34 @@ trigger:
 - "*"
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'                               # pipeline level
 
-jobs:
-- job:
-  steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-
+stages:
+- stage: Build
+  jobs:
+    - job: LinuxJob1
+      steps:
+        - bash: |
+            echo Hello Linux
+          displayName: My Message
+        - bash: echo Hello Linux
+    - job: LinuxJob2
+      steps:
+        - bash: echo Hello Linux
+        - bash: echo Hello Linux
+- stage: Deploy
+  pool:
+    vmImage: 'windows-latest'                          # stage level
+  jobs:
+    - job: WindowsJob1
+      steps:
+        - pwsh: echo Hello Windows
+        - pwsh: echo Hello Windows
+    - job: MacJob2
+      pool:
+          vmImage: 'macOS-latest'                       # job level
+      steps:
+        - bash: echo Hello Mac
+        - bash: echo Hello Mac
+  
 
