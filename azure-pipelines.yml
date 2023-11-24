@@ -4,24 +4,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
-- stage: 
-  jobs:
-  - job: Job1
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  - job: Job2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-- stage:
-  jobs:
-  - job: Job1
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  - job: Job2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
+jobs:
+- job: Job1
+  steps:
+  - bash: echo "Hello World"
+  - bash: echo "Hello World"
+- job: Job2
+  steps:
+  - bash: echo "Hello World"
+  - bash: echo "Hello World"
