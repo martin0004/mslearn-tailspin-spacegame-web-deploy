@@ -5,11 +5,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: BuildJob1
+- job: Job1
   steps:
   - bash: echo "Hello World"
   - bash: echo "Hello World"
-- job: BuildJob2
+- job: Job2
   steps:
   - bash: echo "Hello World"
   - bash: echo "Hello World"
