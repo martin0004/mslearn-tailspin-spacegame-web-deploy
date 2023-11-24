@@ -25,4 +25,5 @@ stages:
     steps:
     - bash: echo "Hello World"
     - bash: echo "Hello World"
+  dependsOn: Build
 
