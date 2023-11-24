@@ -4,26 +4,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
-- stage: Build
-  jobs:
-  - job: BuildJob1
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  - job: BuildJob2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-- stage: Deploy
-  jobs:
-  - job: DeployJob1
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  - job: DeployJob2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  dependsOn: Build
+jobs:
+- job: BuildJob1
+  steps:
+  - bash: echo "Hello World"
+  - bash: echo "Hello World"
+- job: BuildJob2
+  steps:
+  - bash: echo "Hello World"
+  - bash: echo "Hello World"
 
