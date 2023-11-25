@@ -8,9 +8,9 @@ variables:
   name: 'john' 
   n1: $[length(variables.name)]    # length of string
   friends:
-    - john
-    - maria
-    - fido
+  - 'john'
+  - 'maria'
+  - 'fido'
   n2: $[length(variables.friends)] # length of list
 
 steps:
