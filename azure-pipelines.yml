@@ -6,7 +6,12 @@ pool:
 
 variables:
   name: 'john' 
-  n: $[length(variables.name)]    # variable in variable definition
+  n1: $[length(variables.name)]    # length of string
+  friends:
+    - john
+    - maria
+    - fido
+  n2: $[length(variables.friends)] # length of list
 
 steps:
 - task: Bash@3
@@ -15,7 +20,7 @@ steps:
     targetType: 'inline'
     script: |
         echo "Hello $(name)"                   # variable in script
-        echo "Your name is $(n) letters long."
+        echo "Your name is $(n1) letters long."
   condition: | # variable in function
     and (
         succeeded(),
