@@ -16,9 +16,9 @@ steps:
     script: |
         echo "Hello $(name)"                   # variable in script
         echo "Your name is $(numberOfLetters) letters long."
-  condition: |
+  condition: | # variable in function
     and (
         succeeded(),
-        eq(variables['Build.SourceBranchName'], 'demo')   # variable in function
+        eq(variables['Build.SourceBranchName'], 'demo')
     ) 
 
