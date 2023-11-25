@@ -5,21 +5,20 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  x: 10
-  y: 20
   name: 'john' 
+  n: length($(name))    # variable in variable definition
 
 steps:
 - task: Bash@3
+  displayName: Say Hello To $(name)   # variable in attribute
   inputs:
     targetType: 'inline'
     script: |
-        echo "$(x)"            # use variable in script
-- task: Bash@3
-  displayName: Say Hello To $(name)
-  inputs:
-    targetType: 'inline'
-    script: |
-        echo Hello "$(name)"
-  condition: succeeded() 
+        echo "Hello $(name)"                   # variable in script
+        echo "Your name is $(numberOfLetters) letters long."
+  condition: |
+    and (
+        succeeded(),
+        eq(variables['Build.SourceBranchName'], 'demo')   # variable in function
+    ) 
 
