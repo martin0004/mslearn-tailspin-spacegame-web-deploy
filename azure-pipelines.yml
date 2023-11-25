@@ -15,7 +15,7 @@ steps:
     targetType: 'inline'
     script: |
         echo "Hello $(name)"                   # variable in script
-        echo "Your name is $(numberOfLetters) letters long."
+        echo "Your name is $(n) letters long."
   condition: | # variable in function
     and (
         succeeded(),
