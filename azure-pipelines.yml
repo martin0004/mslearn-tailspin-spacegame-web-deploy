@@ -14,5 +14,12 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-        echo "$(x)"            # 10
+        echo "$(x)"            # use variable in script
+- task: Bash@3
+  displayName: Say Hello To $(name)
+  inputs:
+    targetType: 'inline'
+    script: |
+        echo Hello "$(name)"
+  condition: succeeded() 
 
