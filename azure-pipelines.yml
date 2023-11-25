@@ -6,7 +6,7 @@ pool:
 
 variables:
   name: 'john' 
-  n: $[length(name))]    # variable in variable definition
+  n: $[length(variables.name)]    # variable in variable definition
 
 steps:
 - task: Bash@3
