@@ -4,28 +4,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
-- stage: Build
-  jobs:
-  - job: BuildJob1
-    steps:
-    - bash: exit 1
-    - bash: echo "Hello World"
-      condition: succeeded()        # Step level
-  - job: BuildJob2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-    dependsOn: BuildJob1
-    condition: succeeded()          # Job level
-- stage: Deploy
-  jobs:
-  - job: DeployJob1
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  - job: DeployJob2
-    steps:
-    - bash: echo "Hello World"
-    - bash: echo "Hello World"
-  condition: succeeded()            # Stage level
+variables:
+  x: 10
+
+steps:
+- bash: echo $[variables.x]
+- bash: echo $[variables.Build.BuildID]
+
