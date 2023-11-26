@@ -5,9 +5,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  x: '10'
+  x: 10
   y: ${{variables.x}}
-  equal: $[eq(variables.y, '10')]
+  equal: $[eq(variables.y, 10)]
 
 steps:
 - bash: echo "$(x)"
