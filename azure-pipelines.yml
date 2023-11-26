@@ -5,14 +5,17 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  y: $(Build.BuildID)
+  x: 10
+  name: 'John'
+  n: $[length(variables.name)]
 
 steps:
 - task: CmdLine@2
   displayName: "Print variables"
   inputs:
     script: |
-        echo $(Build.BuildID)
-        echo $(y)
-  condition: not(eq(variables.Build.BuildID, 10))
+        echo $(x)
+        echo $(name)
+        echo $(n)
+  condition: not(eq(variables.x, 20))
 
