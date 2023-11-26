@@ -12,6 +12,7 @@ variables:
   - 'maria'
   - 'fido'
   n2: $[length(variables.friends)] # length of list
+  nx: ${{length(variables.name)}}    # length of string
 
 steps:
 - task: Bash@3
