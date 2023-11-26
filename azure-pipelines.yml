@@ -10,7 +10,7 @@ variables:
   equal: $[eq(variables.y, 10)]
 
 steps:
-- bash: echo "$(x)"
+- bash: echo "$[variables.x]"
 - bash: echo "$(y)"
 - bash: echo "$(equal)"
 - bash: echo "$(Build.BuildID)"
