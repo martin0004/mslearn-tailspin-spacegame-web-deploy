@@ -16,10 +16,10 @@ steps:
   displayName: "Print variables"
   inputs:
     script: |
-        echo $(name)
+        echo $(Build.BuildID)
         echo $(x)
         echo $(y)
         echo $(equal)
         echo $(n)
-  condition: eq(variables.y, 20)
+  condition: not(variables.Build.BuildID, 10)
 
