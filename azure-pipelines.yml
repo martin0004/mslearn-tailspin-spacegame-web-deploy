@@ -1,19 +1,13 @@
 trigger:
 - "*"
 
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  name: 'john' 
-  n: $[length(variables.name)]
+schedules:
+- cron: '26 4 * * *'
+  displayName: 'Scheduled trigger'
+  branches:
+    include:
+    - "*"
 
 steps:
-- task: CmdLine@2
-  displayName: "Print variables"
-  inputs:
-    script: |
-        echo $(name)
-        echo $(n)
-        echo eq(variables.name, 'john')
-  condition: not(eq(variables.n, 10))
+- bash: echo "Hello world"
+
