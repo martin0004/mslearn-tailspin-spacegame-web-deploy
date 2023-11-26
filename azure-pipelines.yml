@@ -7,9 +7,11 @@ pool:
 variables:
   x: 10
   y: $(x)
+  equal: $[eq(variables.x, variables.y)]
 
 steps:
 - bash: echo "$(x)"
 - bash: echo "$(y)"
+- bash: echo "$(equal)"
 - bash: echo "$(Build.BuildID)"
 
