@@ -5,11 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  name: 'John'
-  x: 10
-  y: ${{variables.x}}
-  equal: $[eq(variables['y'], 10)]
-  n: $[length(variables.name)]
+  y: ${{variables.BuildID}}
 
 steps:
 - task: CmdLine@2
@@ -17,9 +13,6 @@ steps:
   inputs:
     script: |
         echo $(Build.BuildID)
-        echo $(x)
         echo $(y)
-        echo $(equal)
-        echo $(n)
   condition: not(eq(variables.Build.BuildID, 10))
 
