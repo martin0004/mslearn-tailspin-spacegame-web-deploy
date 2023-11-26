@@ -4,22 +4,27 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  name: 'john' 
-  n1: $[length(variables.name)]    # length of string
-  n2: ${{length(variables.name)}}    # length of string
-
-steps:
-- task: Bash@3
-  displayName: Say Hello To $(name)   # variable in attribute
-  inputs:
-    targetType: 'inline'
-    script: |
-        echo "Hello $(name)"                   # variable in script
-        echo "Your name is $(n2) letters long."
-  condition: | # variable in function
-    and (
-        succeeded(),
-        eq(variables['Build.SourceBranchName'], 'demo')
-    ) 
-
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob1
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+      condition: succeeded()        # Step level
+  - job: BuildJob2
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+    condition: succeeded()          # Job level
+- stage: Deploy
+  jobs:
+  - job: DeployJob1
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+  - job: DeployJob2
+    steps:
+    - bash: echo "Hello World"
+    - bash: echo "Hello World"
+  condition: succeeded()            # Stage level
