@@ -10,7 +10,7 @@ stages:
   - job: BuildJob1
     steps:
     - bash: echo "Hello World"
-    - bash: echo "Hello World"
+    - bash: exit 1
       condition: succeeded()        # Step level
   - job: BuildJob2
     steps:
