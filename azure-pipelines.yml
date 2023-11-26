@@ -5,13 +5,20 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+  name: 'John'
   x: 10
   y: ${{variables.x}}
   equal: $[eq(variables.y, 10)]
+  n: $[length(variables.name)]
 
 steps:
-- bash: echo "$(x)"
-- bash: echo "$(y)"
-- bash: echo "$(equal)"
-- bash: echo "$(Build.BuildID)"
+- task: CmdLine@2
+  displayName: "Print variables"
+  inputs:
+    script: |
+        echo $(name)
+        echo $(x)
+        echo $(y)
+        echo $(equal)
+        echo $(n)
 
