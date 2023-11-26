@@ -6,6 +6,7 @@ pool:
 
 variables:
   x: 10
+  y: $(x)
 
 steps:
 - bash: echo "$(x)"
