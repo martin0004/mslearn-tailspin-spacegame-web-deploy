@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  y: ${{variables.BuildID}}
+  y: ${{variables.Build.BuildID}}
 
 steps:
 - task: CmdLine@2
