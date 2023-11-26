@@ -2,8 +2,7 @@ trigger:
 - "*"
 
 schedules:
-- cron: '28 4 * * *'
-  displayName: 'Scheduled trigger'
+- cron: '34 4 * * *'
   branches:
     include:
     - "*"
