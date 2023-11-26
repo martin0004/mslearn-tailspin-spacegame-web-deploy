@@ -6,7 +6,7 @@ pool:
 
 variables:
   x: '10'
-  y: $(x)
+  y: ${{x}}
   equal: $[eq(variables.y, '10')]
 
 steps:
