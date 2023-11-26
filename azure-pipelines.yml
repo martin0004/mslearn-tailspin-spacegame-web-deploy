@@ -8,6 +8,6 @@ variables:
   x: 10
 
 steps:
-- bash: echo "$[variables.x]"
-- bash: echo "$[variables.Build.BuildID]"
+- bash: echo "$(x)"
+- bash: echo "$(Build.BuildID)"
 
