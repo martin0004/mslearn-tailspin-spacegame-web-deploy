@@ -10,5 +10,6 @@ variables:
 
 steps:
 - bash: echo "$(x)"
+- bash: echo "$(y)"
 - bash: echo "$(Build.BuildID)"
 
