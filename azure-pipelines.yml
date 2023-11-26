@@ -7,7 +7,7 @@ pool:
 variables:
   x: 10
   y: $(x)
-  equal: $[eq(variables.y, '10')]
+  equal: $[eq(variables.y, 10)]
 
 steps:
 - bash: echo "$(x)"
