@@ -75,7 +75,6 @@ stages:
       artifact: drop
 
 - stage: 'Dev'
-  displayName: 'Deploy the web application'
   dependsOn: Build
   condition: |
     and
@@ -103,7 +102,6 @@ stages:
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 - stage: 'Test'
-  displayName: 'Deploy to the test environment'
   dependsOn: Dev
   #condition: eq(variables['Build.Reason'], 'Schedule')
   jobs:
@@ -126,7 +124,6 @@ stages:
               appName: '$(WebAppNameTest)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 - stage: 'Staging'
-  displayName: 'Deploy to the staging environment'
   dependsOn: Test
   jobs:
   - deployment: Deploy
@@ -147,12 +144,5 @@ stages:
               azureSubscription: 'MyConnection'
               appName: '$(WebAppNameStaging)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
-
-
-
-
-
-
-
 
 
