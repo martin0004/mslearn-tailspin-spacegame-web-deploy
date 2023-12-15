@@ -128,9 +128,9 @@ stages:
           - download: current
             artifact: drop
           - task: AzureWebApp@1
-            displayName: 'my-service-connection'
+            displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'Resource Manager - Tailspin - Space Game'
+              azureSubscription: 'my-service-connection'
               appName: '$(WebAppNameStaging)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
   - job: RunLoadTests
