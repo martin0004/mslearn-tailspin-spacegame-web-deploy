@@ -74,7 +74,7 @@ stages:
       vmImage: 'ubuntu-20.04'
     environment: dev
     variables:
-    - group: Release
+    - group: 'my-variable-group'
     strategy:
       runOnce:
         deploy:
@@ -97,7 +97,7 @@ stages:
       vmImage: 'ubuntu-20.04'
     environment: test
     variables:
-    - group: 'Release'
+    - group: 'my-variable-group'
     strategy:
       runOnce:
         deploy:
@@ -120,7 +120,7 @@ stages:
       vmImage: 'ubuntu-20.04'
     environment: staging
     variables:
-    - group: 'Release'
+    - group: 'my-variable-group'
     strategy:
       runOnce:
         deploy:
